@@ -40,7 +40,7 @@ class consul::install {
       if ($consul::ui_dir and $consul::data_dir) {
 
         # The 'dist' dir was removed from the web_ui archive in Consul version 0.6.0
-        if (versioncmp($::consul::version, '0.6.0') < 0) {
+        if (versioncmp($consul::version, '0.6.0') < 0) {
           $staging_creates = "${consul::data_dir}/${consul::version}_web_ui/dist"
           $ui_symlink_target = $staging_creates
         } else {
